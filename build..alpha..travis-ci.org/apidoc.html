@@ -1,0 +1,152 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/TypeStrong/ts-loader"
+
+    >ts-loader (v2.0.3)</a>
+</h1>
+<h4>TypeScript loader for webpack</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ts-loader">module ts-loader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ts-loader.ts-loader">
+            function <span class="apidocSignatureSpan"></span>ts-loader
+            <span class="apidocSignatureSpan">(contents)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ts-loader.toString">
+            function <span class="apidocSignatureSpan">ts-loader.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ts-loader" id="apidoc.module.ts-loader">module ts-loader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ts-loader.ts-loader" id="apidoc.element.ts-loader.ts-loader">
+        function <span class="apidocSignatureSpan"></span>ts-loader
+        <span class="apidocSignatureSpan">(contents)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function loader(contents) {
+    this.cacheable &#x26;&#x26; this.cacheable();
+    var callback = this.async();
+    var options = getLoaderOptions(this);
+    var _a = instances.getTypeScriptInstance(options, this), instance = _a.instance, error = _a.error;
+    if (error) {
+        callback(error);
+        return;
+    }
+    var rawFilePath = path.normalize(this.resourcePath);
+    var filePath = utils.appendTsSuffixIfMatch(options.appendTsSuffixTo, rawFilePath);
+    var fileVersion = updateFileInCache(filePath, contents, instance);
+    var _b = options.transpileOnly
+        ? getTranspilationEmit(filePath, contents, instance, this)
+        : getEmit(rawFilePath, filePath, instance, this), outputText = _b.outputText, sourceMapText = _b.sourceMapText;
+    if (outputText === null || outputText === undefined) {
+        var additionalGuidance = filePath.indexOf(&#x27;node_modules&#x27;) !== -1
+            ? &#x22;\nYou should not need to recompile .ts files in node_modules.\nPlease contact the package author to advise them to
+ use --declaration --outDir.\nMore https://github.com/Microsoft/TypeScript/issues/12358&#x22;
+            : &#x22;&#x22;;
+        throw new Error(&#x22;Typescript emitted no output for &#x22; + filePath + &#x22;.&#x22; + additionalGuidance);
+    }
+    var _c = makeSourceMap(sourceMapText, outputText, filePath, contents, this), sourceMap = _c.sourceMap, output = _c.output;
+    // Make sure webpack is aware that even though the emitted JavaScript may be the same as
+    // a previously cached version the TypeScript may be different and therefore should be
+    // treated as new
+    this._module.meta.tsLoaderFileVersion = fileVersion;
+    callback(null, output, sourceMap);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ts-loader.toString" id="apidoc.element.ts-loader.toString">
+        function <span class="apidocSignatureSpan">ts-loader.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
