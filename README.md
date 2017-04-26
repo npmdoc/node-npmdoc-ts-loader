@@ -1,6 +1,6 @@
 # npmdoc-ts-loader
 
-#### api documentation for  [ts-loader (v2.0.3)](https://github.com/TypeStrong/ts-loader)  [![npm package](https://img.shields.io/npm/v/npmdoc-ts-loader.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ts-loader) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ts-loader.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ts-loader)
+#### basic api documentation for  [ts-loader (v2.0.3)](https://github.com/TypeStrong/ts-loader)  [![npm package](https://img.shields.io/npm/v/npmdoc-ts-loader.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ts-loader) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ts-loader.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ts-loader)
 
 #### TypeScript loader for webpack
 
@@ -106,7 +106,8 @@
         "execution-tests": "node test/execution-tests/run-tests.js",
         "test": "node test/run-tests.js"
     },
-    "version": "2.0.3"
+    "version": "2.0.3",
+    "bin": {}
 }
 ```
 
